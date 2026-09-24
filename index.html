@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Tanuja's personal portfolio and accessible To-Do List project."
+    >
+
+    <meta
+        name="keywords"
+        content="portfolio, web development, HTML, CSS, JavaScript, To-Do List"
+    >
+
+    <meta
+        name="author"
+        content="Tanuja"
+    >
+
+    <title>Tanuja | Web Developer Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Accessibility -->
+    <a
+        href="#main-content"
+        class="skip-link"
+    >
+        Skip to main content
+    </a>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <nav
+            aria-label="Main navigation"
+            class="navbar"
+        >
+
+            <h2 class="logo">
+                Tanuja
+            </h2>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a
+                        href="index.html"
+                        aria-current="page"
+                    >
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main id="main-content">
+
+
+        <!-- HERO -->
+
+        <section
+            class="hero"
+            aria-labelledby="hero-title"
+        >
+
+            <p>
+                Hello, I'm
+            </p>
+
+            <h1 id="hero-title">
+                Tanuja
+            </h1>
+
+            <h2>
+                Web Development Student
+            </h2>
+
+            <p>
+                I create simple, responsive and
+                accessible websites using HTML,
+                CSS and JavaScript.
+            </p>
+
+        </section>
+
+
+        <!-- TODO PROJECT -->
+
+        <section
+            class="todo-section"
+            aria-labelledby="todo-title"
+        >
+
+            <h2 id="todo-title">
+                My To-Do List
+            </h2>
+
+
+            <!-- Add Task -->
+
+            <div class="input-box">
+
+                <label
+                    for="taskInput"
+                    class="sr-only"
+                >
+                    Enter task
+                </label>
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter your task"
+                >
+
+
+                <label
+                    for="prioritySelect"
+                    class="sr-only"
+                >
+                    Select priority
+                </label>
+
+                <select id="prioritySelect">
+
+                    <option value="low">
+                        🟢 Low
+                    </option>
+
+                    <option
+                        value="medium"
+                        selected
+                    >
+                        🟡 Medium
+                    </option>
+
+                    <option value="high">
+                        🔴 High
+                    </option>
+
+                </select>
+
+
+                <label
+                    for="dueDate"
+                    class="sr-only"
+                >
+                    Select due date
+                </label>
+
+                <input
+                    type="date"
+                    id="dueDate"
+                >
+
+
+                <button
+                    id="addTaskBtn"
+                    type="button"
+                    aria-label="Add new task"
+                >
+                    Add Task
+                </button>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <label
+                for="searchInput"
+                class="sr-only"
+            >
+                Search tasks
+            </label>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="🔍 Search tasks..."
+            >
+
+
+            <!-- Buttons -->
+
+            <div class="controls">
+
+                <button
+                    id="darkModeBtn"
+                    type="button"
+                >
+                    🌙 Dark Mode
+                </button>
+
+
+                <button
+                    id="clearAllBtn"
+                    type="button"
+                    aria-label="Delete all tasks"
+                >
+                    Clear All
+                </button>
+
+            </div>
+
+
+            <!-- Sort -->
+
+            <div class="sort-box">
+
+                <label for="sortSelect">
+                    Sort:
+                </label>
+
+                <select id="sortSelect">
+
+                    <option value="default">
+                        Default
+                    </option>
+
+                    <option value="priority">
+                        🔥 Priority
+                    </option>
+
+                    <option value="date">
+                        📅 Due Date
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div
+                class="filters"
+                aria-label="Task filters"
+            >
+
+                <button
+                    type="button"
+                    onclick="filterTasks('all')"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    onclick="filterTasks('active')"
+                >
+                    Active
+                </button>
+
+                <button
+                    type="button"
+                    onclick="filterTasks('completed')"
+                >
+                    Completed
+                </button>
+
+            </div>
+
+
+            <!-- Progress -->
+
+            <div
+                class="progress-box"
+                aria-label="Task completion progress"
+            >
+
+                <div class="progress-info">
+
+                    <span>
+                        Progress
+                    </span>
+
+                    <span id="progressText">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="progress-bar"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                >
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Task List -->
+
+            <ul
+                id="taskList"
+                aria-label="Task list"
+            ></ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Tanuja. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
