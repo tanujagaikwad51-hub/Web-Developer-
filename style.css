@@ -1,0 +1,549 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    margin: 0;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+}
+
+.skip-link:focus {
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background: #ffffff;
+    color: #000000;
+    padding: 10px 14px;
+    border: 2px solid #000000;
+    border-radius: 6px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 24px;
+}
+
+.hero,
+.page-section,
+.todo-section,
+.contact-section {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    margin-top: 0;
+}
+
+.eyebrow {
+    color: #2563eb;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* =========================
+   ABOUT / SKILLS
+========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: #f8fafc;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.skill-card h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background: #f8fafc;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+/* =========================
+   TODO APP
+========================= */
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#taskInput {
+    flex: 1 1 220px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+#prioritySelect,
+#dueDate {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+#searchInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#addTaskBtn {
+    padding: 12px 20px;
+}
+
+#darkModeBtn,
+#clearAllBtn {
+    margin-top: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.sort-box {
+    margin-top: 15px;
+}
+
+#sortSelect {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 8px 14px;
+}
+
+.progress-box {
+    margin-top: 25px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #4caf50;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+#taskList li span:first-child {
+    flex: 1;
+}
+
+.priority {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.high {
+    background: #ffdddd;
+}
+
+.medium {
+    background: #fff1bf;
+}
+
+.low {
+    background: #dff5df;
+}
+
+.due-date {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+}
+
+#taskCounter {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-section {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+    font: inherit;
+    background: #ffffff;
+    color: #222;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.error-message {
+    color: #b91c1c;
+    min-height: 24px;
+    margin: 5px 0 0;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #b91c1c;
+}
+
+.submit-btn {
+    background: #2563eb;
+    color: #ffffff;
+    padding: 12px 20px;
+}
+
+#form-status {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #555;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background: #2b2b2b;
+    border-color: #555;
+}
+
+body.dark-mode .nav-links a {
+    color: #ffffff;
+}
+
+body.dark-mode .hero,
+body.dark-mode .page-section,
+body.dark-mode .todo-section,
+body.dark-mode .contact-section {
+    background: #2b2b2b;
+    color: #ffffff;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .project-card {
+    background: #333333;
+    border-color: #555555;
+}
+
+body.dark-mode #taskInput,
+body.dark-mode #prioritySelect,
+body.dark-mode #dueDate,
+body.dark-mode #searchInput,
+body.dark-mode #sortSelect,
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #333333;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+body.dark-mode #taskInput::placeholder,
+body.dark-mode #searchInput::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark-mode #taskList li {
+    background: #333333;
+    border-color: #555555;
+}
+
+body.dark-mode button {
+    background: #444444;
+    color: #ffffff;
+}
+
+body.dark-mode .high {
+    background: #6b3030;
+}
+
+body.dark-mode .medium {
+    background: #665b27;
+}
+
+body.dark-mode .low {
+    background: #315d31;
+}
+
+body.dark-mode .due-date {
+    color: #dddddd;
+}
+
+body.dark-mode .progress-bar {
+    background: #444444;
+}
+
+body.dark-mode #progressFill {
+    background: #66bb6a;
+}
+
+body.dark-mode footer {
+    color: #dddddd;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .hero,
+    .page-section,
+    .todo-section,
+    .contact-section {
+        padding: 20px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-box {
+        flex-direction: column;
+    }
+
+    #taskInput,
+    #prioritySelect,
+    #dueDate,
+    #addTaskBtn {
+        width: 100%;
+    }
+
+    #taskList li {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .due-date {
+        white-space: normal;
+    }
+}
